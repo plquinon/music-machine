@@ -5,7 +5,7 @@ import jm.JMC;
 import jm.music.data.Note;
 import jm.util.Play;
 
-public class Rhythm {
+public class MidiExample {
 
     public static void main(String[] args) {
 
