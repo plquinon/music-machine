@@ -105,7 +105,5 @@ public class ScoreParser {
         HashMap<String, ArrayList<ArrayList<Double>>> drumBeatTimes = scoreParser.getDrumBeatTimes();
 
         System.out.println(drumBeatTimes);
-
-
     }
 }
