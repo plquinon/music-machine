@@ -1,7 +1,7 @@
 import jm.JMC;
 import jm.music.data.*;
 import jm.util.*;
-import jm.music.tools.Mod;
+import jm.music.tools.*;
 
 /**
  * A short example which generates a drum kit pattern
@@ -15,17 +15,11 @@ public final class DrumKit implements JMC{
     //Attributes
     /////////////
     private Score pattern1 = new Score("MusicMachine - Kit");
-    // "kick" = title, 0 = instrument (kit), 9 = MIDI channel 10
-    private Part drumsBD = new Part("Kick",0, 9);
-    private Part drumsSD = new Part("Snare",0, 9);
-    private Part drumsHHC = new Part("Hats Closed",0, 9);
-    private Part drumsHHO = new Part("Hats Open",0, 9);
-    private Part drumsCY = new Part("Cymbal",0, 9);
-    private Phrase phrBD = new Phrase(0.0);
-    private Phrase phrSD = new Phrase(0.0);
-    private Phrase phrHHC = new Phrase(0.0);
-    private Phrase phrHHO = new Phrase(0.0);
-    private Phrase end = new Phrase(4.0);
+    // "DrumKit" = title, 0 = instrument (kit), 9 = MIDI channel 10
+    private Part drums = new Part("DrumKit", 0, 9);
+    private Phrase phrBD = new Phrase("BD", 0.0);
+    private Phrase phrSD = new Phrase("SD", 0.0);
+    private Phrase phrHHC = new Phrase("HH", 0.0);
     //define repeatedly used rests
     private Note restW = new Note(REST, WHOLE_NOTE);
     private Note restH = new Note(REST, HALF_NOTE);
@@ -56,16 +50,13 @@ public final class DrumKit implements JMC{
         // make hats
         this.doHiHats();
 
-        //crash at the end
-        Note crashSB = new Note(49, SB); // crash
-        end.addNote(crashSB);
-
         //Assemble the score
         this.doScore();
 
+        Mod.repeat(pattern1, 2);
+
         // write the score to a MIDIfile
         Write.midi(pattern1, "DrumKit.mid");
-        pattern1.setTempo(80);
         System.out.println("Tempo: " + pattern1.getTempo());
         Play.midi(pattern1);
     }
@@ -154,17 +145,11 @@ public final class DrumKit implements JMC{
     private void doScore() {
         // add phrases to the instrument (part)
         System.out.println("Assembling. . .");
-        drumsBD.addPhrase(phrBD);
-        drumsSD.addPhrase(phrSD);
-        drumsHHC.addPhrase(phrHHC);
-        drumsHHO.addPhrase(phrHHO);
-        drumsCY.addPhrase(end);
+        drums.addPhrase(phrBD);
+        drums.addPhrase(phrSD);
+        drums.addPhrase(phrHHC);
 
         // add the drum parts to a score.
-        pattern1.addPart(drumsBD);
-        pattern1.addPart(drumsSD);
-        pattern1.addPart(drumsHHC);
-        pattern1.addPart(drumsHHO);
-        pattern1.addPart(drumsCY);
+        pattern1.addPart(drums);
     }
 }
