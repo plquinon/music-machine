@@ -11,3 +11,5 @@ The drum part must be writen to channel 9 of the midi score inorder for the prog
 
 Additionally the drum drumLib directory and it's contents must be located in the working directory of the DrumLearner
 class
+
+Currently only 4/4 time signature rock beats are supported in the drumLib.
