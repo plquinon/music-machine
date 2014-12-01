@@ -8,13 +8,14 @@ import jm.util.*;
 
 import java.util.*;
 
-import jm.music.tools.*;
-
 public class ScoreParser {
     private Score score = new Score();
 
     public ScoreParser(String midiFile){
         Read.midi(score, midiFile); //read score from file
+    }
+    public ScoreParser(Score s){
+        score = s; //read score from file
     }
 
     private ArrayList<Part> getDrumParts(){
@@ -69,22 +70,21 @@ public class ScoreParser {
         return beatTimes;
     }
 
-    public ArrayList<ArrayList<Double>> splitMeasures(ArrayList<Double> beatTimes, int measureLength){
+    private ArrayList<ArrayList<Double>> splitMeasures(ArrayList<Double> beatTimes, int measureLength){
         int currMeasureEnd = measureLength;
         ArrayList<ArrayList<Double>> measures = new ArrayList<ArrayList<Double>>();
         ArrayList<Double> measure = new ArrayList<Double>();
 
         for(Double beat: beatTimes){
-            if(beat >= currMeasureEnd){
+            while(beat >= currMeasureEnd){
                 //append measure to measures
                 measures.add(new ArrayList<Double>(measure));
                 //increment currMeasureEnd
                 currMeasureEnd = currMeasureEnd + measureLength;
                 //clear measure
                 measure.clear();
-
             }
-            measure.add(beat);
+            measure.add(beat-currMeasureEnd+measureLength);
         }
         //add last measure
         measures.add(new ArrayList<Double>(measure));

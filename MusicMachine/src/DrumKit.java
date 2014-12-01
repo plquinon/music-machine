@@ -75,20 +75,22 @@ public final class DrumKit implements JMC{
         Note note = new Note(BASS_DRUM_1, SIXTEENTH_NOTE);
         phrBD.addNote(note);//1
         phrBD.addNote(restS);//e
-        phrBD.addNote(restS);//&
-        phrBD.addNote(restS);//a
+        phrBD.addNote(note);//&
+        phrBD.addNote(note);//a
         phrBD.addNote(restS);//2
         phrBD.addNote(restS);//e
         phrBD.addNote(restS);//&
-        phrBD.addNote(restS);//a
-        phrBD.addNote(note);//3
-        phrBD.addNote(restS);//e
+        phrBD.addNote(note);//a
+        phrBD.addNote(restS);//3
+        phrBD.addNote(note);//e
         phrBD.addNote(restS);//&
-        phrBD.addNote(restS);//a
+        phrBD.addNote(note);//a
         phrBD.addNote(restS);//4
         phrBD.addNote(restS);//e
         phrBD.addNote(restS);//&
         phrBD.addNote(restS);//a
+
+        phrBD.addNote(restW);
     }
 
     private void doSnare() {
@@ -105,7 +107,7 @@ public final class DrumKit implements JMC{
         phrSD.addNote(restS);//&
         phrSD.addNote(restS);//a
         phrSD.addNote(note);//2
-        phrSD.addNote(restS);//e
+        phrSD.addNote(note);//e
         phrSD.addNote(restS);//&
         phrSD.addNote(restS);//a
         phrSD.addNote(restS);//3
@@ -113,9 +115,11 @@ public final class DrumKit implements JMC{
         phrSD.addNote(restS);//&
         phrSD.addNote(restS);//a
         phrSD.addNote(note);//4
-        phrSD.addNote(restS);//e
+        phrSD.addNote(note);//e
         phrSD.addNote(restS);//&
         phrSD.addNote(restS);//a
+
+        phrSD.addNote(restW);
     }
 
     private void doHiHats() {
@@ -126,21 +130,23 @@ public final class DrumKit implements JMC{
 //        }
         Note note = new Note(CLOSED_HI_HAT, SIXTEENTH_NOTE);
         phrHHC.addNote(note);//1
-        phrHHC.addNote(restS);//e
+        phrHHC.addNote(note);//e
         phrHHC.addNote(note);//&
         phrHHC.addNote(restS);//a
         phrHHC.addNote(note);//2
-        phrHHC.addNote(restS);//e
+        phrHHC.addNote(note);//e
         phrHHC.addNote(note);//&
         phrHHC.addNote(restS);//a
         phrHHC.addNote(note);//3
-        phrHHC.addNote(restS);//e
+        phrHHC.addNote(note);//e
         phrHHC.addNote(note);//&
         phrHHC.addNote(restS);//a
         phrHHC.addNote(note);//4
         phrHHC.addNote(restS);//e
         phrHHC.addNote(note);//&
-        phrHHC.addNote(restS);//a
+        phrHHC.addNote(note);//a
+
+        phrHHC.addNote(restW);
     }
     private void doScore() {
         // add phrases to the instrument (part)
