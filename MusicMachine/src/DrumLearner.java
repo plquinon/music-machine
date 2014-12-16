@@ -9,6 +9,7 @@ import jm.music.data.Phrase;
 import jm.music.data.Score;
 import jm.util.Play;
 import jm.util.Read;
+import jm.util.Write;
 
 import java.io.File;
 
@@ -183,7 +184,15 @@ public class DrumLearner {
         System.out.println("Playing original score");
         Play.midi(origScore);
         System.out.println("Replicating drum beat from original score");
-        Play.midi(learner.mimicScore(origScore));
+        Score newScore = learner.mimicScore(origScore);
+        Play.midi(newScore);
+        Write.midi(newScore, "newDrumKit.mid");
+        System.out.println("Combining Parts");
+        for(Part part: origScore.getPartArray()){
+            newScore.add(part);
+        }
+        Play.midi(newScore);
+        Write.midi(newScore, "combinedDrumKit.mid");
     }
 
 }

@@ -44,10 +44,12 @@ public class ScoreParser {
                     if(unsplitPhrase.getNote(i).getPitch() == JMC.CLOSED_HI_HAT){
                         hhTimes.add(unsplitPhrase.getNoteStartTime(i));
                     }
-                    else if(unsplitPhrase.getNote(i).getPitch() == JMC.ELECTRIC_SNARE){
+                    else if(unsplitPhrase.getNote(i).getPitch() == JMC.ACOUSTIC_SNARE ||
+                            unsplitPhrase.getNote(i).getPitch() == JMC.ELECTRIC_SNARE){
                         sdTimes.add(unsplitPhrase.getNoteStartTime(i));
                     }
-                    else if(unsplitPhrase.getNote(i).getPitch() == JMC.BASS_DRUM_1){
+                    else if(unsplitPhrase.getNote(i).getPitch() == JMC.ACOUSTIC_BASS_DRUM ||
+                            unsplitPhrase.getNote(i).getPitch() == JMC.BASS_DRUM_1){
                         bdTimes.add(unsplitPhrase.getNoteStartTime(i));
                     }
 

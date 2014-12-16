@@ -72,7 +72,7 @@ public final class DrumKit implements JMC{
 //            phrBD.addNote(note);
 //            phrBD.addNote(restQ);
 //        }
-        Note note = new Note(BASS_DRUM_1, SIXTEENTH_NOTE);
+        Note note = new Note(ACOUSTIC_BASS_DRUM, SIXTEENTH_NOTE);
         phrBD.addNote(note);//1
         phrBD.addNote(restS);//e
         phrBD.addNote(note);//&
@@ -90,7 +90,7 @@ public final class DrumKit implements JMC{
         phrBD.addNote(restS);//&
         phrBD.addNote(restS);//a
 
-        phrBD.addNote(restW);
+        //phrBD.addNote(restW);
     }
 
     private void doSnare() {
@@ -101,7 +101,7 @@ public final class DrumKit implements JMC{
 //            Note note = new Note(ACOUSTIC_SNARE, QUARTER_NOTE);
 //            phrSD.addNote(note);
 //        }
-        Note note = new Note(ELECTRIC_SNARE, SIXTEENTH_NOTE);
+        Note note = new Note(ACOUSTIC_SNARE, SIXTEENTH_NOTE);
         phrSD.addNote(restS);//1
         phrSD.addNote(restS);//e
         phrSD.addNote(restS);//&
@@ -119,7 +119,7 @@ public final class DrumKit implements JMC{
         phrSD.addNote(restS);//&
         phrSD.addNote(restS);//a
 
-        phrSD.addNote(restW);
+        //phrSD.addNote(restW);
     }
 
     private void doHiHats() {
@@ -146,7 +146,7 @@ public final class DrumKit implements JMC{
         phrHHC.addNote(note);//&
         phrHHC.addNote(note);//a
 
-        phrHHC.addNote(restW);
+        //phrHHC.addNote(restW);
     }
     private void doScore() {
         // add phrases to the instrument (part)
